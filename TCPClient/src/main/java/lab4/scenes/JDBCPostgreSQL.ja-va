@@ -1,0 +1,102 @@
+package lab4.scenes;
+
+//STEP 1. Import required packages
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import lab4.cqrs.datatypes.MilitaryClient;
+
+public class JDBCPostgreSQL {
+	// static String DB_URL = "jdbc:postgresql://127.0.0.1:5432/military";
+	// static String USER = "admin";
+	// static String PASS = "password";
+	private Connection connection;
+
+	public JDBCPostgreSQL(String url, String user, String pass) {
+		System.out.println("Testing connection to PostgreSQL JDBC");
+
+		try {
+			Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("PostgreSQL JDBC Driver is not found. Include it in your library path ");
+			e.printStackTrace();
+			return;
+		}
+		System.out.println("PostgreSQL JDBC Driver successfully connected");
+
+		try {
+			connection = DriverManager.getConnection(url, user, pass);
+		} catch (SQLException e) {
+			System.out.println("Connection Failed");
+			e.printStackTrace();
+			return;
+		}
+	}
+	public ObservableList<MilitaryClient> militaryClient = FXCollections.observableArrayList();
+	public ObservableList<MilitaryClient> addClients() throws SQLException{
+		
+		
+			
+			Statement stmt;
+			stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM clients ORDER BY id");
+			
+			
+			// while (rs.next()) {
+				
+            //     String id = rs.getString("id");
+			// 	String TIN = rs.getString("TIN");
+			// 	String country = rs.getString("country");
+			// 	militaryClient.add(new MilitaryClient(id, TIN, country)); 
+			// 	System.out.println("Clients added");
+					
+			// System.out.println("id  TIN  country");
+
+			// while (rs.next()) {
+			// 	
+			// System.out.println(id + "   " + TIN + "    " + country);
+			// }
+		// }
+		return militaryClient;
+		// } catch (SQLException e) {
+
+		// 	e.printStackTrace();
+		// }
+		
+
+	}
+
+	public void printOrders() {
+
+		try {
+			System.out.println("You successfully connected to database now");
+			Statement stmt;
+			stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM orders ORDER BY id");
+			System.out.println("id  type	  subtype  marking  client_id");
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String type = rs.getString("type");
+				String subtype = rs.getString("subtype");
+				String marking = rs.getString("marking");
+				String client_id = rs.getString("client_id");
+
+				System.out.println(id + "  " + type + "  " + subtype + "  " + marking + "  " + client_id);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+}	

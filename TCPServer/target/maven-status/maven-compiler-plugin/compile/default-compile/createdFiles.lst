@@ -1,0 +1,7 @@
+org/anngudin/lab4/server/Client.class
+org/anngudin/lab4/server/MilitaryClient.class
+org/anngudin/lab4/server/TCPServer.class
+org/anngudin/lab4/server/Constants.class
+org/anngudin/lab4/server/TCPServer$Handler.class
+org/anngudin/lab4/server/JDBCPostgreSQL.class
+org/anngudin/lab4/server/MilitaryOrder.class

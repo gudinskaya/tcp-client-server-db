@@ -1,0 +1,9 @@
+lab4/cqrs/State.class
+lab4/cqrs/datatypes/MilitaryOrder.class
+lab4/utils/ErrorUtil.class
+lab4/scenes/Main.class
+lab4/scenes/TablesController.class
+lab4/scenes/Connection.class
+lab4/cqrs/datatypes/Result.class
+lab4/cqrs/datatypes/MilitaryClient.class
+lab4/utils/Constants.class

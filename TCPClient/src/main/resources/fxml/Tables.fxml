@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1032.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab4.scenes.TablesController">
+   <children>
+      <Label layoutX="20.0" layoutY="4.0" prefHeight="31.0" prefWidth="246.0" text="Clients">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="502.0" layoutY="4.0" prefHeight="31.0" prefWidth="246.0" text="Orders">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="clientsTable" layoutX="14.0" layoutY="35.0" prefHeight="264.0" prefWidth="389.0">
+        <columns>
+          <TableColumn fx:id="ClientId" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="TIN" prefWidth="168.0" text="TIN" />
+            <TableColumn fx:id="Country" prefWidth="145.0" text="Country" />
+        </columns>
+      </TableView>
+      <TableView fx:id="ordersTable" layoutX="495.0" layoutY="35.0" prefHeight="264.0" prefWidth="527.0">
+         <columns>
+            <TableColumn fx:id="orderId" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="type" prefWidth="187.0" text="Type" />
+            <TableColumn fx:id="subtype" prefWidth="105.0" text="Subtype" />
+            <TableColumn fx:id="marking" prefWidth="80.0" text="Marking" />
+            <TableColumn fx:id="client_id" prefWidth="78.0" text="Client id" />
+         </columns>
+      </TableView>
+      <Button onAction="#goBack" layoutX="14.0" layoutY="784.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="89.0" text="Back" />
+      <!-- <Button fx:id="changeButton" layoutX="229.0" layoutY="649.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="175.0" text="Change" /> -->
+      <Button  onAction="#addClient" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="175.0" text="Add" />
+      <Text fontSmoothingType="LCD" layoutX="892.0" layoutY="805.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anna Gudinskaya" textAlignment="RIGHT" wrappingWidth="125.27450561523438">
+         <font>
+            <Font name="Zapfino" size="11.0" />
+            <!-- fx:id="addClientButton" -->
+         </font>
+      </Text>
+      <!-- fx:id="addOrderButton" -->
+      <Button onAction="#addOrder" layoutX="502.0" layoutY="495.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="175.0" text="Add" />
+      <TextField fx:id="tinField" layoutX="14.0" layoutY="321.0" prefHeight="37.0" prefWidth="175.0" promptText="TIN" />
+      <TextField fx:id="countryField" layoutX="14.0" layoutY="364.0" prefHeight="37.0" prefWidth="175.0" promptText="Country" />
+      <TextField fx:id="typeField" layoutX="502.0" layoutY="321.0" prefHeight="37.0" prefWidth="175.0" promptText="Type" />
+      <TextField fx:id="subtypeField" layoutX="502.0" layoutY="364.0" prefHeight="37.0" prefWidth="175.0" promptText="Subtype" />
+      <TextField fx:id="markingField" layoutX="502.0" layoutY="406.0" prefHeight="37.0" prefWidth="175.0" promptText="Marking" />
+      <TextField fx:id="clientIdField" layoutX="502.0" layoutY="450.0" prefHeight="37.0" prefWidth="175.0" promptText="Client id" />
+      <!-- <TextField fx:id="IdChangeField" layoutX="229.0" layoutY="513.0" prefHeight="37.0" prefWidth="175.0" promptText="id" />
+      <TextField fx:id="columnChangeField" layoutX="229.0" layoutY="558.0" prefHeight="37.0" prefWidth="175.0" promptText="Column to change" />
+      <TextField fx:id="valueChangeField" layoutX="229.0" layoutY="603.0" prefHeight="37.0" prefWidth="175.0" promptText="Value" />
+      <TextField fx:id="tableChangeField" layoutX="229.0" layoutY="469.0" prefHeight="37.0" prefWidth="175.0" promptText="Table to change" /> -->
+      <!-- <TextField fx:id="idDeleteClientField" layoutX="229.0" layoutY="321.0" prefHeight="37.0" prefWidth="175.0" promptText="id" /> -->
+      <Button onAction="#onClientDelete" layoutX="229.0" layoutY="364.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="175.0" text="Delete" />
+      <!-- <TextField fx:id="idDeleteOrderField" layoutX="723.0" layoutY="318.0" prefHeight="37.0" prefWidth="175.0" promptText="id" /> -->
+      <Button onAction="#deleteOrder" layoutX="723.0" layoutY="361.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="175.0" text="Delete" />
+      <!-- fx:id="deleteClientButton"  -->
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>
